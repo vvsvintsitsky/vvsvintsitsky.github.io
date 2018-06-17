@@ -1,11 +1,11 @@
 var translationTaskModule = {};
 
 translationTaskModule.loadTaskVariants = function(url) {
-    /*
-    fetch("test.json")
+    
+    fetch("assets/game-contents/translations.json")
         .then(response => response.json())
         .then(json => console.log(json));
-    */
+    
     this.taskVariants = [
         { "word": "cat", "translations": ["кот", "кошка"] },
         { "word": "dog", "translations": ["пес", "пёс", "собака"] }
