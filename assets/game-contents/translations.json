@@ -1,0 +1,6 @@
+{
+    "translations": [
+        {"word":"cat", "translations": ["кот", "котик", "кошка"]},
+        {"word":"dog", "translations": ["пес", "пёс", "собака"]}
+    ]
+}
