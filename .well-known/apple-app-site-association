@@ -1,0 +1,1 @@
+{"webcredentials":{"apps":["D644H8Z6B2.com.getgoing.iphone"]},"applinks":{"details":[{"appIDs":["D644H8Z6B2.com.getgoing.iphone"],"components":[{"/":"/callback-verification/*","comment":"Booking segment to traveler callback verification"},{"/":"/card-verification/*","comment":"Card callback verification"},{"/":"/order-verification/*","comment":"Order callback verification"}]}]}}
