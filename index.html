@@ -5,6 +5,35 @@
     <title>root</title>
 </head>
 <body>
-Root
+    <h1>Root</h1>
+    <input id="linp" type="text"/><button id="btn">Add</button>
+<script>
+var btn = document.getElementById('btn');
+var inp = document.getElementById('linp');
+
+btn.addEventListener('click', () => {
+    var linkToUse = inp.value;
+    var rt = document.createElement('div');
+    
+    var dv = document.createElement('div');
+    var lnk = document.createElement('a');
+    lnk.href = linkToUse;
+    lnk.innerText = linkToUse;
+
+    var dv1 = document.createElement('div');
+    var lnk1 = document.createElement('a');
+    lnk1.target = "_blank";
+    lnk1.href = linkToUse;
+    lnk1.innerText = `${BLANK} linkToUse`;
+
+    dv.appendChild(lnk);
+    dv1.appendChild(lnk1);
+    rt.appendChild(dv);
+    rt.appendChild(dv1);
+
+    document.body.appendChild(rt);
+})
+
+</script>
 </body>
 </html>
