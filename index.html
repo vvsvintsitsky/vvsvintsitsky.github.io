@@ -1,39 +1,298 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>root</title>
+  <meta charset="utf-8">
+  <title>Wishmaster</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+  <style>
+    * {
+        font-family: 'Open Sans';
+    }
+
+    h1 {
+        margin: 0;
+    }
+
+    details h3 {
+        margin: 0;
+        display: inline-block;
+    }
+
+    body {
+        margin: 0;
+        padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    #wishesLeft {
+        color: lightseagreen;
+        font-size: 28px;
+    }
+
+    .pack {
+        box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+
+        padding: 15px;
+    }
+
+    ul {
+        list-style-position: inside;
+        padding: 0;
+    }
+
+    .wishPros {
+        list-style-type: "+";
+        color: darkgreen;
+    }
+
+    .wishCons {
+        list-style-type: "-";
+        color: darkred;
+    }
+
+    .wishDate {
+        padding-bottom: 5px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .labeledInput {
+        display: flex;
+        flex-direction: column;
+    }
+
+    button {
+        background-color: darkcyan;
+        color: white;
+        height: 50px;
+        border: none;
+        border-radius: 15px;
+    }
+
+    button:active {
+        background-color: rgb(21, 168, 168);
+    }
+
+    ol {
+        padding-left: 30px;
+    }
+
+    .wishesList li {
+        margin: 10px 0;
+    }
+
+    hr {
+        width: 100%;
+    }
+
+  </style>
 </head>
 <body>
-    <h1>Root</h1>
-    <input id="linp" type="text"/><button id="btn">Add</button>
-<script>
-var btn = document.getElementById('btn');
-var inp = document.getElementById('linp');
+    <header>
+        <h1>Wishmaster v0.0.1</h1>
+        <h2>Желаний осталось: <span id="wishesLeft">33</span></h2>
+        <details class="terms">
+            <summary><h3>Условия использования</h3></summary>
+            <article>
+                <p>
+                    Данное приложение предназначено для загадывания желаний, которые должны быть исполнены Вашей второй половинкой.
+                    Текущая версия продукта позволяет загадать <b>33</b> желания до <b>15.09.2025</b>.
+                </p>
 
-btn.addEventListener('click', () => {
-    var linkToUse = inp.value;
-    var rt = document.createElement('div');
+                <p>
+                    Желание считается загаданным только после нажатия на кнопку "Использовать".
+                </p>
+
+                <p>
+                    Существует возможность обновления приложения на основании обратной связи от пользователей. Для добавления нового функционала следует связаться с создателем приложения.
+                </p>
+
+                <p>
+                    На данный момент отсутствует поддержка работы одного пользователя с нескольких устройств одновременно.
+                </p>
+                
+                <p>
+                    <strong>ПРЕДУПРЕЖДЕНИЕ!</strong>
+                    Если фунционал приложения не будет использован на все 100% за один год, то Вы будете <em><b>сурово наказаны</b></em>.
+                </p>
+            </article>
+        </details>
+    </header>
+    <hr>
+    <main>
+        <div class="pack">
+            <h3>"Полет фантазии"</h3>
+            
+            <ul class="wishPros">
+                <li>Любое желание</li>
+            </ul>
+            <ul class="wishCons">
+                <li>В пределах разумного</li>
+                <li>Никоим образом не относится к черным точкам</li>
+            </ul>
+            <form id="customWishForm">
+                <label class="labeledInput">
+                    Твое желание:
+                    <input type="text" required name="wish" />
+                </label>
+                <label>
+                    Выбор подтверждаю
+                    <input type="checkbox" required />
+                </label>
+                <button>Использовать</button>
+            </form>
+        </div>
+        <div class="pack">
+            <h3>Черные точки</h3>
+            <ul class="wishPros">
+                <li>3 штуки</li>
+                <li>Абсолютно в любом месте</li>
+                <li>В любое время</li>
+            </ul>
+            <ul class="wishCons">
+                <li>Не более трех (3 (три))</li>
+                <li>Давать возможность собраться с духом</li>
+                <li>Нельзя заниматься удалением в те моменты, когда это может создать опасность для окружающих</li>
+            </ul>
+            <form id="dostForm">
+                <input type="hidden" required value="Удаление точек (3шт.)" name="wish" />
+                <label>
+                    Выбор подтверждаю
+                    <input type="checkbox" required />
+                </label>
+                
+                <button>Использовать</button>
+            </form>
+        </div>
+    </main>
+    <hr>
+    <footer>
+        <details id="usedWishes">
+            <summary>История желаний</summary>
+        </details>
+    </footer>
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("sw.js")
+            })
+        }
+    </script>
+    <script>
+
+const WISHES_STORAGE_KEY = "wishes";
+const MAX_WISHES = 33;
+
+class Wish {
+    constructor({ title, date }) {
+        this.title = title;
+        this.date = date;
+    }
+
+    toJSON() {
+        return { title: this.title, date: new Date(this.date).toISOString() };
+    }
+}
+
+const rawPersistedWishes = localStorage.getItem(WISHES_STORAGE_KEY);
+const wishes = (rawPersistedWishes ? JSON.parse(rawPersistedWishes) : []).map(rawWish => new Wish(rawWish));
+
+function getAvailableWishesQuantity() {
+    return MAX_WISHES - wishes.length;
+}
+
+function updateAvailableWishedCounter() {
+    document.getElementById('wishesLeft').textContent = getAvailableWishesQuantity();
+}
+
+function syncWishes() {
+    localStorage.setItem(WISHES_STORAGE_KEY, JSON.stringify(wishes.map(wish => wish.toJSON())));
+    updateAvailableWishedCounter();
+}
+
+
+const usedWishesDetailsElement = document.getElementById("usedWishes");
+
+
+const wishesListElement = document.createElement('ol');
+wishesListElement.classList.add('wishesList');
+
+const dateFormatter = new Intl.DateTimeFormat('ru-RU', {
+    dateStyle: 'full',
+    timeStyle: 'short',
+});
+
+function appendWishElement(wish) {
+    const wishElement = document.createElement('li');
+    wishElement.classList.add('wishDetailsItem');
+
+    const wishDateElement = document.createElement('div');
+    wishDateElement.classList.add('wishDate');
+    wishDateElement.innerText = dateFormatter.format(new Date(wish.date));
+    wishElement.appendChild(wishDateElement);
     
-    var dv = document.createElement('div');
-    var lnk = document.createElement('a');
-    lnk.href = linkToUse;
-    lnk.innerText = linkToUse;
+    const wishTitleElement = document.createElement('i');
+    wishTitleElement.classList.add('wishTitle');
+    wishTitleElement.innerText = wish.title;
+    wishElement.appendChild(wishTitleElement);
 
-    var dv1 = document.createElement('div');
-    var lnk1 = document.createElement('a');
-    lnk1.target = "_blank";
-    lnk1.href = linkToUse;
-    lnk1.innerText = `BLANK ${linkToUse}`;
+    wishesListElement.appendChild(wishElement);
+}
 
-    dv.appendChild(lnk);
-    dv1.appendChild(lnk1);
-    rt.appendChild(dv);
-    rt.appendChild(dv1);
+wishes.forEach(wish => {
+    appendWishElement(wish);
+});
 
-    document.body.appendChild(rt);
-})
+usedWishesDetailsElement.appendChild(wishesListElement);
 
-</script>
+function onWishFormSubmit(e) {
+    e.preventDefault();
+
+    const form = e.target;
+
+    const formData = new FormData(form);
+    const wishTitle = formData.get('wish');
+
+    const newWish = new Wish({ title: wishTitle, date: new Date().getTime() });
+    wishes.push(newWish);
+    syncWishes();
+
+    appendWishElement(newWish);
+
+    form.reset();
+}
+
+document.getElementById('customWishForm').addEventListener('submit', onWishFormSubmit);
+document.getElementById('dostForm').addEventListener('submit', onWishFormSubmit);
+updateAvailableWishedCounter();
+
+
+    </script>
 </body>
 </html>
